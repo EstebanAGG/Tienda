@@ -6,13 +6,17 @@ class Inventario {
     }
 
     fun mostrarProductos(){
+        println("LISTADO DE PRODUCTOS")
+        println("---------------------")
         listaProductos.forEach {
             println("Producto: $it")
         }
     }
 
     fun modificarCantidad(nombreProducto: String, nuevaCantidad: Int){
-        listaProductos.first{ it.getNombre() == nombreProducto }
-            .modificarCantidad(nuevaCantidad)
+        listaProductos.firstOrNull(){ it.getNombre() == nombreProducto }
+            ?.modificarCantidad(nuevaCantidad) ?: println("El producto no existe.")
     }
+
+    fun esVacio():Boolean = listaProductos.isEmpty()
 }

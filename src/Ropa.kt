@@ -1,7 +1,5 @@
-class Ropa(nombre: String, precio: Double, cantidad: Int, color: String) : Producto(nombre, precio, cantidad) {
-    var color: String = color
-        get() = field
-        set(color) {field = color}
+class Ropa(nombre: String, precio: Double, cantidad: Int, private var color: String)
+    : Producto(nombre, precio, cantidad) {
 
     override fun toString(): String {
         return "Ropa: ${this.getNombre()}, precio: ${this.getPrecio()}," +

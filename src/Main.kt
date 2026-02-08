@@ -16,36 +16,42 @@ fun main() {
             1 -> {
                 print("Ingrese el tipo de producto (1: Tipo 1, 2: Tipo 2): ")
                 val tipo = readLine()?.toIntOrNull() ?: continue
+                if (tipo in 1..2) {
+                    print("Nombre del producto: ")
+                    val nombre = readLine() ?: continue
 
-                print("Nombre del producto: ")
-                val nombre = readLine() ?: continue
+                    print("Precio del producto: ")
+                    val precio = readLine()?.toDoubleOrNull() ?: continue
 
-                print("Precio del producto: ")
-                val precio = readLine()?.toDoubleOrNull() ?: continue
+                    print("Cantidad del producto: ")
+                    val cantidad = readLine()?.toIntOrNull() ?: continue
 
-                print("Cantidad del producto: ")
-                val cantidad = readLine()?.toIntOrNull() ?: continue
+                    when (tipo) {
+                        1 -> {
+                            // Generar código para caso 1 --> Electronico
+                            print("Encendido Ss/N: ")
+                            val encendido = readLine() ?: continue
+                            val estaEncendido = (encendido == "S") || (encendido == "s")
+                            val nuevoProducto = Electronico(nombre, precio, cantidad, estaEncendido)
+                            inventario.addProducto(nuevoProducto)
+                        }
 
-                when (tipo) {
-                    1 -> {
-                        // Generar código para caso 1 --> Electronico
-                        print("Encendido S/N: ")
-                        val encendido = readLine() ?: continue
-                        val estaEncendido = (encendido == "S")
-                        val nuevoProducto = Electronico(nombre, precio, cantidad, estaEncendido )
-                        inventario.addProducto(nuevoProducto)
+                        2 -> {
+                            // Generar código para caso 2
+                            print("Ingrese el color: ")
+                            val color = readLine() ?: continue
+                            val nuevoProducto = Ropa(nombre, precio, cantidad, color)
+                            inventario.addProducto(nuevoProducto)
+                        }
+
+                        else -> println("Tipo de producto no válido.")
                     }
-                    2 -> {
-                        // Generar código para caso 2
-                        print("Ingrese el color: ")
-                        val color = readLine() ?: continue
-                        val nuevoProducto = Ropa(nombre, precio, cantidad, color)
-                        inventario.addProducto(nuevoProducto)
-                    }
-                    else -> println("Tipo de producto no válido.")
-                }
+                }else println("Tipo de producto no válido.")
             }
-            2 -> inventario.mostrarProductos()
+            2 -> {
+                if (inventario.esVacio()) println("No hay productos.")
+                else inventario.mostrarProductos()
+            }
             3 -> {
                 print("Nombre del producto a modificar: ")
                 val nombreProducto = readLine() ?: continue
