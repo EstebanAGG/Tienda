@@ -1,7 +1,6 @@
-abstract class Producto(nombre: String = "", precio : Double = 0.0, cantidad: Int = 0){
-    private var nombre: String = nombre
-    private var precio: Double = precio
-    private var cantidad: Int = cantidad
+abstract class Producto(private var nombre: String = "",
+                        private var precio : Double = 0.0,
+                        private var cantidad: Int = 0){
 
     fun getNombre(): String{
         return nombre
