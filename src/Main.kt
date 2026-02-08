@@ -28,10 +28,19 @@ fun main() {
 
                 when (tipo) {
                     1 -> {
-                        // Generar código para caso 1
+                        // Generar código para caso 1 --> Electronico
+                        print("Encendido S/N: ")
+                        val encendido = readLine() ?: continue
+                        val estaEncendido = (encendido == "S")
+                        val nuevoProducto = Electronico(nombre, precio, cantidad, estaEncendido )
+                        inventario.addProducto(nuevoProducto)
                     }
                     2 -> {
                         // Generar código para caso 2
+                        print("Ingrese el color: ")
+                        val color = readLine() ?: continue
+                        val nuevoProducto = Ropa(nombre, precio, cantidad, color)
+                        inventario.addProducto(nuevoProducto)
                     }
                     else -> println("Tipo de producto no válido.")
                 }
