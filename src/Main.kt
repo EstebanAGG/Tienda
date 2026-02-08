@@ -31,7 +31,7 @@ fun main() {
                             // Generar código para caso 1 --> Electronico
                             print("Encendido Ss/N: ")
                             val encendido = readLine() ?: continue
-                            val estaEncendido = (encendido == "S") || (encendido == "s")
+                            val estaEncendido = encendido.uppercase() == "S"
                             val nuevoProducto = Electronico(nombre, precio, cantidad, estaEncendido)
                             inventario.addProducto(nuevoProducto)
                         }

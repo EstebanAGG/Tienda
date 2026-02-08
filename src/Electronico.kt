@@ -2,7 +2,7 @@ class Electronico(nombre: String, precio: Double, cantidad: Int, private var enc
     : Producto(nombre, precio, cantidad)
 {
     override fun toString(): String {
-        return "Electrónico: ${this.getNombre()}, precio: ${this.getPrecio()}, " +
-                "cantidad: ${this.getCantidad()}, encendido: ${if (encendido) "sí" else "no"}"
+        return "Electrónico: ${this.nombre}, precio: ${this.precio}, " +
+                "cantidad: ${this.cantidad}, encendido: ${if (encendido) "Sí" else "No"}"
     }
 }

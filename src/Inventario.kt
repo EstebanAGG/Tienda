@@ -14,7 +14,7 @@ class Inventario {
     }
 
     fun modificarCantidad(nombreProducto: String, nuevaCantidad: Int){
-        listaProductos.firstOrNull(){ it.getNombre() == nombreProducto }
+        listaProductos.firstOrNull(){ it.nombre == nombreProducto }
             ?.modificarCantidad(nuevaCantidad) ?: println("El producto no existe.")
     }
 
