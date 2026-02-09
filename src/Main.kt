@@ -14,7 +14,7 @@ fun main() {
 
         when (opcion) {
             1 -> {
-                print("Ingrese el tipo de producto (1: Tipo 1, 2: Tipo 2): ")
+                print("Ingrese el tipo de producto (1: Electrónico, 2: Ropa): ")
                 val tipo = readLine()?.toIntOrNull() ?: continue
                 if (tipo in 1..2) {
                     print("Nombre del producto: ")
